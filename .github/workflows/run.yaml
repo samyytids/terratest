@@ -22,4 +22,5 @@ jobs:
       - name: Terraform Apply
         env:
           TF_VAR_project_id: ${{ secrets.PROJECT_ID }}
+          TF_VAR_reader_domain: ${{ secrets.READER_DOMAIN}}
         run: terraform apply -auto-approve
