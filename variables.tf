@@ -19,7 +19,7 @@ variable "csv_quote" {
 }
 
 variable "csv_skip_leading_rows" {
-  type = int
+  type = number
   description = "The number of rows to skip in a csv"
   default = 1
 }
