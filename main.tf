@@ -26,7 +26,7 @@ resource "google_service_account" "bqowner" {
 }
 
 resource "google_storage_bucket_iam_member" "bq_read" {
-  bucket = google_storage_bucket.bucket.name
+  bucket = "benchmar_config"
   role   = "roles/storage.objectViewer"
   member = "serviceAccount:${google_service_account.bqowner.email}"
 }
@@ -41,7 +41,8 @@ resource "google_bigquery_table" "dim_models" {
     source_format = "CSV"
     source_uris   = ["gs://benchmar_config/*/models.csv"]
     csv_options {
-      skip_leading_rows = 1
+      quote = var.csv_quote
+      skip_leading_rows = var.csv_skip_leading_rows
     }
     hive_partitioning_options {
       mode                     = "AUTO"
@@ -61,7 +62,8 @@ resource "google_bigquery_table" "dim_providers" {
     source_format = "CSV"
     source_uris   = ["gs://benchmar_config/*/providers.csv"]
     csv_options {
-      skip_leading_rows = 1
+      quote = var.csv_quote
+      skip_leading_rows = var.csv_skip_leading_rows
     }
     hive_partitioning_options {
       mode                     = "AUTO"

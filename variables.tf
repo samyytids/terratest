@@ -11,3 +11,15 @@ variable "reader_domain" {
   nullable    = false
   sensitive   = true
 }
+
+variable "csv_quote" {
+  type  = string
+  description = "The quote used to demark the data section of a csv"
+  default = ""
+}
+
+variable "csv_skip_leading_rows" {
+  type = int
+  description = "The number of rows to skip in a csv"
+  default = 1
+}
