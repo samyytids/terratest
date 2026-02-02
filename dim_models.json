@@ -1,0 +1,68 @@
+[
+  {
+    "name": "model_id",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "description": "Model id"
+  },
+  {
+    "name": "provider_id",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "description": "Provider id"
+  },
+  {
+    "name": "url",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "description": "Direct url for the model (provider level url if none exists)"
+  },
+  {
+    "name": "release_date",
+    "type": "DATE",
+    "mode": "REQUIRED",
+    "description": "The month and year the model was released (day is set to a default of 1)"
+  },
+  {
+    "name": "size",
+    "type": "INT64",
+    "mode": "NULLABLE",
+    "description": "The number of parameters the model has"
+  },
+  {
+    "name": "input_cost",
+    "type": "FLOAT64",
+    "mode": "NULLABLE",
+    "description": "The cost per {...} input tokens"
+  },
+  {
+    "name": "output_cost",
+    "type": "FLOAT64",
+    "mode": "NULLABLE",
+    "description": "The cost per {...} output tokens"
+  },
+  {
+    "name": "display_name",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "description": "The alias for the model used on the website"
+  },
+  {
+    "name": "is_reasoning",
+    "type": "BOOLEAN",
+    "mode": "REQUIRED",
+    "description": "Whether the model is considered a reasoning model"
+  },
+  {
+    "name": "is_vision",
+    "type": "BOOLEAN",
+    "mode": "REQUIRED",
+    "description": "Whether the model is considered a vision model"
+  },
+  {
+    "name": "created",
+    "type": "DATE",
+    "mode": "REQUIRED",
+    "description": "The date this model was created for use (internally as a benchmark option), MM/YYYY (any DD value is a default as this information is not provided in the models.csv file)"
+  }
+]

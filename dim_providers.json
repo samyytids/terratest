@@ -1,0 +1,26 @@
+[
+  {
+    "name": "provider_id",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "description": "Provider id"
+  },
+  {
+    "name": "color",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "description": "The provider's brand color"
+  },
+  {
+    "name": "svg",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "description": "The string representation of the brand's logo as an svg"
+  },
+  {
+    "name": "created",
+    "type": "DATE",
+    "mode": "REQUIRED",
+    "description": "The date this provider was created for use (internally as a benchmark option), MM/YYYY (any DD value is a default as this information is not provided in the models.csv file)"
+  }
+]
