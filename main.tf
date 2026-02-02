@@ -23,7 +23,7 @@ resource "google_bigquery_dataset" "dataset" {
 resource "google_storage_bucket_iam_member" "bq_read" {
   bucket = "benchmar_config"
   role   = "roles/storage.objectViewer"
-  member = "serviceAccount:${google_service_account.bqowner.email}"
+  member = "serviceAccount:samuel.james@fabinc.co.uk"
 }
 
 
