@@ -20,11 +20,6 @@ resource "google_bigquery_dataset" "dataset" {
   }
 }
 
-resource "google_service_account" "bqowner" {
-  account_id = "bqowner"
-  project    = var.project_id
-}
-
 resource "google_storage_bucket_iam_member" "bq_read" {
   bucket = "benchmar_config"
   role   = "roles/storage.objectViewer"
