@@ -13,14 +13,20 @@ jobs:
         run: terraform init
       - name: Terraform Format Check
         uses: dflook/terraform-fmt@v2
+        with:
+          path: terraform
       - name: Terraform Validate
         uses: dflook/terraform-validate@v2
+        with:
+          path: terraform
       - name: 'Authenticate to Google Cloud'
         uses: 'google-github-actions/auth@v3'
+      - name: Authenticate to GCP
+        uses: google-github-actions/auth@v2
         with:
-          credentials_json: ${{ secrets.SERVICE_KEY_JSON }}
+          workload_identity_provider: "projects/937748189510/locations/global/workloadIdentityPools/github-actions/providers/github"
+          service_account: "sa-github@fab-benchmarks-485014.iam.gserviceaccount.com"
       - name: Terraform Apply
         env:
-          TF_VAR_project_id: ${{ secrets.PROJECT_ID }}
-          TF_VAR_reader_domain: ${{ secrets.READER_DOMAIN}}
+          TF_VAR_project_id: ${{ secrets.TF_VARS_project_id }}
         run: terraform apply -auto-approve
