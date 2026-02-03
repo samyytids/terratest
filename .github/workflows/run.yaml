@@ -19,7 +19,7 @@ jobs:
         uses: dflook/terraform-fmt@v2
       - name: Terraform Validate
         uses: dflook/terraform-validate@v2
-    - name: Decode OIDC token
+      - name: Decode OIDC token
         run: |
           TOKEN=$(curl -H "Authorization: Bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL?audience=google-cloud")
           echo $TOKEN | cut -d. -f2 | base64 --decode
