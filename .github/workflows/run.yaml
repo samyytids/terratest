@@ -5,6 +5,10 @@ on: push
 jobs:
   terraform-checks:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+
     steps:
       - uses: actions/checkout@v6
       - name: Setup Terraform
@@ -13,12 +17,8 @@ jobs:
         run: terraform init
       - name: Terraform Format Check
         uses: dflook/terraform-fmt@v2
-        with:
-          path: terraform
       - name: Terraform Validate
         uses: dflook/terraform-validate@v2
-        with:
-          path: terraform
       - name: 'Authenticate to Google Cloud'
         uses: 'google-github-actions/auth@v3'
       - name: Authenticate to GCP
